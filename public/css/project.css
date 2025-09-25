@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius&display=swap");
+
+div {
+    padding: 10px;
+}
+.list {
+    color: green;
+}
+
+.submit {
+    background-color: limegreen;
+    color: white;
+    padding: 10px 20px;
+    border-width: 0px;
+    font-size: 16px;
+}
+.edit_input {
+    border: 1px solid limegreen;
+}
