@@ -43,7 +43,7 @@
                         <td>{{ $pj->labs->abbreviation }}</td>
                         <td>
                             <a href="projects/{{ $pj->id }}" class="btn btn-outline-primary">Edit</a>
-                            <a href="{{ route('projects.destroy', ['id' => $pj->id]) }}"
+                            <a href="{{ route('projects.destroy', ['id' => $pj->id] ) }}"
                                 onclick="return confirm('Are you sure?')" class="btn btn-outline-primary">
                                 Delete
                             </a>

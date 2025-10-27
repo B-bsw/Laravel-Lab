@@ -16,6 +16,7 @@ class projectController extends Controller
         $project = $projects::with("labs")->get();
         return view("projects", compact("project"));
     }
+    
     function addProject(Request $request)
     {
         $projects = new Projects();
@@ -26,6 +27,7 @@ class projectController extends Controller
 
         return redirect('projects');
     }
+    
     function showform()
     {
         $lab = new labs();
@@ -43,6 +45,7 @@ class projectController extends Controller
         $projects = Projects::findOrFail($id);
         return view('createProject', compact("projects", "title", 'id',  'labs'));
     }
+
     function update(Request $req, String $id)
     {
         $projects = projects::find($id);

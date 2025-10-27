@@ -10,6 +10,7 @@ class Projects extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    
     function labs()
     {
         return $this->belongsTo(labs::class, 'lab_id', 'id');
