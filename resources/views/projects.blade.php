@@ -52,6 +52,11 @@
                 @endforeach
             </tbody>
         </table>
+        <div>
+            <form action="/restore" method="get">
+                <input type="submit" value="restore" class="btn btn-outline-primary">
+            </form>
+        </div>
     </div>
 </body>
 

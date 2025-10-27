@@ -16,7 +16,7 @@ class projectController extends Controller
         $project = $projects::with("labs")->get();
         return view("projects", compact("project"));
     }
-    
+
     function addProject(Request $request)
     {
         $projects = new Projects();
@@ -27,7 +27,7 @@ class projectController extends Controller
 
         return redirect('projects');
     }
-    
+
     function showform()
     {
         $lab = new labs();
@@ -63,5 +63,11 @@ class projectController extends Controller
         $projects->delete();
 
         return redirect('projects');
+    }
+
+    function restore(){
+        $restore = Projects::withTrashed();
+        $restore->restore();
+        return redirect('/projects');
     }
 }

@@ -55,6 +55,8 @@ Route::middleware([
     Route::post('/projects/edit/{id}', [projectController::class, 'update']);
 
     Route::get('/projects/{id}/delete', [projectController::class, 'destroy'])->name('projects.destroy');
+
+    Route::get('/restore', [projectController::class, 'restore']);
 });
 //lab09
 //lab08
