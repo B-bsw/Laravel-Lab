@@ -15,7 +15,12 @@
             font-family: "Delius", cursive;
             font-weight: 400;
             font-style: normal;
-
+        }
+        th,td{
+            text-align:center;
+        }
+        .left{
+            text-align:start !important;
         }
     </style>
 </head>
@@ -38,10 +43,10 @@
                 @foreach ($project as $pj)
                     <tr>
                         <td>{{ $pj->id }}</td>
-                        <td>{{ $pj->project_name }}</td>
+                        <td class="left">{{ $pj->project_name }}</td>
                         <td>{{ $pj->budget, 2 }}</td>
                         <td>{{ $pj->labs->abbreviation }}</td>
-                        <td>
+                        <td style="display:flex; gap:1rem; justify-content:center;">
                             <a href="projects/{{ $pj->id }}" class="btn btn-outline-primary">Edit</a>
                             <a href="{{ route('projects.destroy', ['id' => $pj->id] ) }}"
                                 onclick="return confirm('Are you sure?')" class="btn btn-outline-primary">
@@ -52,6 +57,7 @@
                 @endforeach
             </tbody>
         </table>
+
         <div>
             <form action="/restore" method="get">
                 <input type="submit" value="restore" class="btn btn-outline-primary">

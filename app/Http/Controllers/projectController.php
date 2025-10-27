@@ -25,7 +25,7 @@ class projectController extends Controller
         $projects->lab_id = $request->labAb;
         $projects->save();
 
-        return redirect('projects');
+        return redirect("projects");
     }
 
     function showform()
@@ -33,20 +33,23 @@ class projectController extends Controller
         $lab = new labs();
         $labs = $lab::all();
         $title = "Add";
-        return view('createProject', compact("labs", 'title'));
+        return view("createProject", compact("labs", "title"));
     }
 
-    function editform(String $id)
+    function editform(string $id)
     {
         $lab = new labs();
         $labs = $lab::all();
         $title = "Edit";
 
         $projects = Projects::findOrFail($id);
-        return view('createProject', compact("projects", "title", 'id',  'labs'));
+        return view(
+            "createProject",
+            compact("projects", "title", "id", "labs"),
+        );
     }
 
-    function update(Request $req, String $id)
+    function update(Request $req, string $id)
     {
         $projects = projects::find($id);
         $projects->project_name = $req->name;
@@ -54,20 +57,20 @@ class projectController extends Controller
         $projects->lab_id = $req->labAb;
         $projects->save();
 
-        return redirect('projects');
+        return redirect("projects");
     }
 
-    function destroy(String $id)
+    function destroy(string $id)
     {
         $projects = Projects::findOrFail($id);
         $projects->delete();
 
-        return redirect('projects');
+        return redirect("projects");
     }
 
-    function restore(){
-        $restore = Projects::withTrashed();
-        $restore->restore();
-        return redirect('/projects');
+    function restore()
+    {
+        Projects::withTrashed()->restore();
+        return redirect("/projects");
     }
 }
