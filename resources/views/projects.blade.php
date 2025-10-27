@@ -44,7 +44,7 @@
                     <tr>
                         <td>{{ $pj->id }}</td>
                         <td class="left">{{ $pj->project_name }}</td>
-                        <td>{{ $pj->budget, 2 }}</td>
+                        <td>{{ $pj->budget }}</td>
                         <td>{{ $pj->labs->abbreviation }}</td>
                         <td style="display:flex; gap:1rem; justify-content:center;">
                             <a href="projects/{{ $pj->id }}" class="btn btn-outline-primary">Edit</a>
